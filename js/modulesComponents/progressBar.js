@@ -1,6 +1,16 @@
-export const progressRocketWeight = (Totales, Rockets)=>{
-    let conterDiv = [];
+import { 
+    getRocketMassTotal, 
+    getRocketPayloadWeightsTotal, 
+    getRocketHeightTotal, 
+    getRocketDiameterTotal,
+    getRocketSecondStageCompositeFairingDiameterTotal,
+    getRocketSecondStageCompositeFairingHeightTotal
+    
+} from "../modules/rockets.js";
 
+export const progressRocketWeight = async (Rockets)=>{ 
+    let{kg} = await await getRocketMassTotal();
+    let conterDiv = [];
     [Rockets].forEach(val => {
         let divInformationContainer = document.createElement("div");
         divInformationContainer.classList.add("information__container")
@@ -29,8 +39,10 @@ export const progressRocketWeight = (Totales, Rockets)=>{
     });
     return conterDiv
 }
-export const progressPayloadWeights = (Totales, Rockets)=>{
+export const progressPayloadWeights = async (Rockets)=>{
+    let {kg} = await getRocketPayloadWeightsTotal();
     let conterDiv = [];
+  
     Rockets.payload_weights.forEach(val => {
         let divInformationContainer = document.createElement("div");
         divInformationContainer.classList.add("information__container")
@@ -59,7 +71,8 @@ export const progressPayloadWeights = (Totales, Rockets)=>{
     });
     return conterDiv
 }
-export const progressHeightRocket = (Totales, Rockets)=>{
+export const progressHeightRocket = async (Rockets)=>{
+    let {meters} = await getRocketHeightTotal();
     let conterDiv = [];
     [Rockets.height].forEach(val => {
         let divInformationContainer = document.createElement("div");
@@ -89,7 +102,8 @@ export const progressHeightRocket = (Totales, Rockets)=>{
     });
     return conterDiv
 }
-export const progressDiameterRocket = (Totales, Rockets)=>{
+export const progressDiameterRocket = async (Rockets)=>{
+    let {meters} = await getRocketDiameterTotal();
     let conterDiv = [];
     [Rockets.diameter].forEach(val => {
         let divInformationContainer = document.createElement("div");
@@ -119,7 +133,8 @@ export const progressDiameterRocket = (Totales, Rockets)=>{
     });
     return conterDiv
 }
-export const progressSecondStageDiameterRocket = (Totales, Rockets)=>{
+export const progressSecondStageDiameterRocket = async(Rockets)=>{
+    let {meters} = await getRocketSecondStageCompositeFairingDiameterTotal();
     let conterDiv = [];
     [Rockets.second_stage.payloads.composite_fairing.diameter].forEach(val => {
         let divInformationContainer = document.createElement("div");
@@ -149,7 +164,9 @@ export const progressSecondStageDiameterRocket = (Totales, Rockets)=>{
     });
     return conterDiv
 }
-export const progressSecondStageHeightRocket = (Totales, Rockets)=>{
+export const progressSecondStageHeightRocket = async (Rockets)=>{
+    let {meters} = await getRocketSecondStageCompositeFairingHeightTotal();
+    
     let conterDiv = [];
     [Rockets.second_stage.payloads.composite_fairing.height].forEach(val => {
         let divInformationContainer = document.createElement("div");

@@ -1,4 +1,4 @@
-import { getAllRockets } from "./modules/rockets.js";
+import { getAllRockets,} from "./modules/rockets.js";
 import { 
     progressRocketWeight, 
     progressPayloadWeights, 
@@ -10,17 +10,13 @@ import {
 
 
 let information__2 = document.querySelector("#information__2");
-let dataRockets = await getAllRockets();
-let Totales = dataRockets.pop()
+let [Rockets1, Rockets2, Rockets3, Rockets4] = await getAllRockets();
 
-let [Rockets1, Rockets2, Rockets3, Rockets4] = dataRockets; 
+information__2.append(...await progressRocketWeight(Rockets1))
+information__2.append(...await progressPayloadWeights(Rockets1))
+information__2.append(...await progressHeightRocket(Rockets1))
+information__2.append(...await progressDiameterRocket(Rockets1))
+information__2.append(...await progressSecondStageDiameterRocket(Rockets1))
+information__2.append(...await progressSecondStageHeightRocket(Rockets1))
 
-console.log(dataRockets);
-console.log(Totales);
 
-information__2.append(...progressRocketWeight(Totales.kg_max, Rockets3))
-information__2.append(...progressPayloadWeights(Totales.payload_weights, Rockets3))
-information__2.append(...progressHeightRocket(Totales.height, Rockets3))
-information__2.append(...progressDiameterRocket(Totales.diameter, Rockets3))
-information__2.append(...progressSecondStageDiameterRocket(Totales.composite_diameter, Rockets3))
-information__2.append(...progressSecondStageHeightRocket(Totales.composite_height, Rockets3))
