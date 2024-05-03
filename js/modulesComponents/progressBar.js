@@ -5,13 +5,11 @@ import {
     getRocketDiameterTotal,
     getRocketSecondStageCompositeFairingDiameterTotal,
     getRocketSecondStageCompositeFairingHeightTotal
-    
 } from "../modules/rockets.js";
-
-export const progressRocketWeight = async (Rockets)=>{ 
-    let{kg} = await await getRocketMassTotal();
+export const progressRocketWeight = async(Rockets)=>{
+    let {kg} = await getRocketMassTotal();
     let conterDiv = [];
-    [Rockets].forEach(val => {
+    [Rockets].forEach((val) => {
         let divInformationContainer = document.createElement("div");
         divInformationContainer.classList.add("information__container")
         let divFirst = document.createElement("div");
@@ -19,7 +17,7 @@ export const progressRocketWeight = async (Rockets)=>{
         labelFist.textContent = "Rocket weight :";
     
         let ProgressFist = document.createElement("progress");
-        ProgressFist.max = Totales;
+        ProgressFist.max = kg
         ProgressFist.value = `${val.mass.kg}`;
         ProgressFist.textContent = `${val.mass.kg}%`;
     
@@ -37,12 +35,21 @@ export const progressRocketWeight = async (Rockets)=>{
         divInformationContainer.append(divLast)
         conterDiv.push(divInformationContainer)
     });
-    return conterDiv
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+    // <div class="information__container">
+    //     <div>
+    //         <label>Totle :</label>
+    //         <progress max="100" value="70">70%</progress>
+    //     </div>
+    //     <div>
+    //         <span>0 kg <br> 0 lb</span>
+    //     </div>
+    // </div>
 }
-export const progressPayloadWeights = async (Rockets)=>{
+export const progressPayloadWeights = async(Rockets)=>{
     let {kg} = await getRocketPayloadWeightsTotal();
     let conterDiv = [];
-  
     Rockets.payload_weights.forEach(val => {
         let divInformationContainer = document.createElement("div");
         divInformationContainer.classList.add("information__container")
@@ -51,7 +58,7 @@ export const progressPayloadWeights = async (Rockets)=>{
         labelFist.textContent = `${val.name} :`;
     
         let ProgressFist = document.createElement("progress");
-        ProgressFist.max = Totales;
+        ProgressFist.max = kg;
         ProgressFist.value = `${val.kg}`;
         ProgressFist.textContent = `${val.kg}%`;
     
@@ -69,9 +76,19 @@ export const progressPayloadWeights = async (Rockets)=>{
         divInformationContainer.append(divLast)
         conterDiv.push(divInformationContainer)
     });
-    return conterDiv
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+    // <div class="information__container">
+    //     <div>
+    //         <label>Totle :</label>
+    //         <progress max="100" value="70">70%</progress>
+    //     </div>
+    //     <div>
+    //         <span>0 kg <br> 0 lb</span>
+    //     </div>
+    // </div>
 }
-export const progressHeightRocket = async (Rockets)=>{
+export const progressHeightRocket = async(Rockets)=>{
     let {meters} = await getRocketHeightTotal();
     let conterDiv = [];
     [Rockets.height].forEach(val => {
@@ -82,7 +99,7 @@ export const progressHeightRocket = async (Rockets)=>{
         labelFist.textContent = `Rocket Height :`;
     
         let ProgressFist = document.createElement("progress");
-        ProgressFist.max = Totales;
+        ProgressFist.max = meters;
         ProgressFist.value = `${val.meters}`;
         ProgressFist.textContent = `${val.meters}%`;
     
@@ -100,9 +117,19 @@ export const progressHeightRocket = async (Rockets)=>{
         divInformationContainer.append(divLast)
         conterDiv.push(divInformationContainer)
     });
-    return conterDiv
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+    // <div class="information__container">
+    //     <div>
+    //         <label>Totle :</label>
+    //         <progress max="100" value="70">70%</progress>
+    //     </div>
+    //     <div>
+    //         <span>0 kg <br> 0 lb</span>
+    //     </div>
+    // </div>
 }
-export const progressDiameterRocket = async (Rockets)=>{
+export const progressDiameterRocket = async(Rockets)=>{
     let {meters} = await getRocketDiameterTotal();
     let conterDiv = [];
     [Rockets.diameter].forEach(val => {
@@ -113,7 +140,7 @@ export const progressDiameterRocket = async (Rockets)=>{
         labelFist.textContent = `Rocket diameter :`;
     
         let ProgressFist = document.createElement("progress");
-        ProgressFist.max = Totales;
+        ProgressFist.max = meters;
         ProgressFist.value = `${val.meters}`;
         ProgressFist.textContent = `${val.meters}%`;
     
@@ -131,7 +158,17 @@ export const progressDiameterRocket = async (Rockets)=>{
         divInformationContainer.append(divLast)
         conterDiv.push(divInformationContainer)
     });
-    return conterDiv
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+    // <div class="information__container">
+    //     <div>
+    //         <label>Totle :</label>
+    //         <progress max="100" value="70">70%</progress>
+    //     </div>
+    //     <div>
+    //         <span>0 kg <br> 0 lb</span>
+    //     </div>
+    // </div>
 }
 export const progressSecondStageDiameterRocket = async(Rockets)=>{
     let {meters} = await getRocketSecondStageCompositeFairingDiameterTotal();
@@ -144,7 +181,7 @@ export const progressSecondStageDiameterRocket = async(Rockets)=>{
         labelFist.textContent = `Diameter rocket shield :`;
     
         let ProgressFist = document.createElement("progress");
-        ProgressFist.max = Totales;
+        ProgressFist.max = meters;
         ProgressFist.value = `${val.meters}`;
         ProgressFist.textContent = `${val.meters}%`;
     
@@ -162,11 +199,20 @@ export const progressSecondStageDiameterRocket = async(Rockets)=>{
         divInformationContainer.append(divLast)
         conterDiv.push(divInformationContainer)
     });
-    return conterDiv
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+    // <div class="information__container">
+    //     <div>
+    //         <label>Totle :</label>
+    //         <progress max="100" value="70">70%</progress>
+    //     </div>
+    //     <div>
+    //         <span>0 kg <br> 0 lb</span>
+    //     </div>
+    // </div>
 }
-export const progressSecondStageHeightRocket = async (Rockets)=>{
+export const progressSecondStageHeightRocket = async(Rockets)=>{
     let {meters} = await getRocketSecondStageCompositeFairingHeightTotal();
-    
     let conterDiv = [];
     [Rockets.second_stage.payloads.composite_fairing.height].forEach(val => {
         let divInformationContainer = document.createElement("div");
@@ -176,7 +222,7 @@ export const progressSecondStageHeightRocket = async (Rockets)=>{
         labelFist.textContent = `Height rocket shield :`;
     
         let ProgressFist = document.createElement("progress");
-        ProgressFist.max = Totales;
+        ProgressFist.max = meters;
         ProgressFist.value = `${val.meters}`;
         ProgressFist.textContent = `${val.meters}%`;
     
@@ -194,5 +240,15 @@ export const progressSecondStageHeightRocket = async (Rockets)=>{
         divInformationContainer.append(divLast)
         conterDiv.push(divInformationContainer)
     });
-    return conterDiv
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv)
+    // <div class="information__container">
+    //     <div>
+    //         <label>Totle :</label>
+    //         <progress max="100" value="70">70%</progress>
+    //     </div>
+    //     <div>
+    //         <span>0 kg <br> 0 lb</span>
+    //     </div>
+    // </div>
 }
