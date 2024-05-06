@@ -191,3 +191,28 @@ export const getAllRocketEngineThrustVacuumTotal  = async() =>{
     let {docs:[{engines} = maxEnginesRocket]} = await res.json();
     return engines.thrust_vacuum;
 }
+
+
+// export const getAllRocketsSecondStageBurnTimeSec = async() =>{
+//     let config = {
+//         headers:{
+//             "content-type": "application/json"
+//         },
+//         method: "POST",
+//         body: JSON.stringify({
+//             "options": {
+//                 "select":{
+//                     "second_stage": 1
+//                 },
+//                 "sort":{
+//                     "second_stage.burn_time_sec": "desc"
+//                 }
+//             }
+
+//         })
+//     }
+//     let res = await fetch("https://api.spacexdata.com/v4/rockets/query", config);
+//     let {docs:[{second_stage}= maxEnginesRocket]} =await res.json ();
+//     return second_stage.burn_time_sec;
+// }  
+
