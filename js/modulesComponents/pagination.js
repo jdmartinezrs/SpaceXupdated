@@ -22,7 +22,8 @@ import {
     informRocketFirstStageThrustSeaLevel,
     informRocketSecondStageThrust,
     informRocketFuelAmountTons,
-    informRocketSecondStageFuelAmountTons
+    informRocketBurnTimeSec
+   
 } from "./inform.js";
 import { 
     imageRockets 
@@ -74,7 +75,7 @@ const getRocketsId = async(e)=>{
     await informRocketFirstStageThrustSeaLevel(Rocket.first_stage.thrust_sea_level)
     await informRocketSecondStageThrust(Rocket.second_stage.thrust)
     await informRocketFuelAmountTons(Rocket.first_stage.fuel_amount_tons)
-    await informRocketSecondStageFuelAmountTons(Rocket.second_stage.fuel_amount_tons)
+    await informRocketBurnTimeSec(Rocket.second_stage.burn_time_sec)
     await imageRockets(Rocket.flickr_images);
 
 

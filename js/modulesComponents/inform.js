@@ -5,7 +5,8 @@ import {
     getAllRocketFirstStageThrustSeaLevelTotal,
     getAllRocketSecondStageThrust,
     getAllRocketsFuelAmountTons,
-    getAllRocketsSecondStageFuelAmountTons
+    getAllRocketsSecondStageBurnTimeSec
+    
 } from "../modules/rockets.js";
 
 
@@ -234,25 +235,25 @@ export const informRocketFuelAmountTons= async(fuel_amount_tons)=>{
     // </div>
 }
 
-export const informRocketSecondStageFuelAmountTons= async(fuel_amount_tons)=>{
-    let TotalTons = await getAllRocketsSecondStageFuelAmountTons();
-    let pocentaje = (fuel_amount_tons * 100) / TotalTons;
+export const informRocketBurnTimeSec= async(burn_time_sec)=>{
+    let TotalBurn = await getAllRocketsSecondStageBurnTimeSec();
+    let porcentaje = (burn_time_sec * 100) / TotalBurn;
 
     let div = document.createElement('div');
     div.classList.add("carousel__item")
     let divFirst = document.createElement('div');
     divFirst.classList.add("item__progress__bar");
-    divFirst.style = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(var(--color--three) ${pocentaje}%, transparent 0)`
+    divFirst.style = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(var(--color--three) ${porcentaje}%, transparent 0)`
     let divFirstChildren = document.createElement('div');
     divFirstChildren.classList.add("progress__value")
     let strong = document.createElement('strong');
-    strong.textContent = "Second Stage Fuel Amount Tons"
+    strong.textContent = "Second Stage burn time sec"
     let smallFirst = document.createElement('small');
-    smallFirst.textContent = `${pocentaje.toFixed(2)} %`    
+    smallFirst.textContent = `${porcentaje.toFixed(2)} %`    
     
     let smallLast = document.createElement('small');
-    let Tons = new Intl.NumberFormat('cop').format(fuel_amount_tons)
-    smallLast.innerHTML = `${Tons} Tons <br>`
+    let Burns = new Intl.NumberFormat('cop').format(burn_time_sec)
+    smallLast.innerHTML = `${Burns} Burns <br>`
 
     divFirstChildren.append(strong, smallFirst, smallLast)
     divFirst.append(divFirstChildren)
