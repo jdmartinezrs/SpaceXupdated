@@ -237,7 +237,7 @@ export const getAllRocketFirstStageThrustSeaLevelTotal = async()=>{
 }
 
 
-export const getAllRocketSecondStageThrust = async()=>{
+export const getAllRocketSecondStageFuelAmountTons= async()=>{
     let config = {
         headers:{
             "content-type": "application/json"
@@ -249,14 +249,14 @@ export const getAllRocketSecondStageThrust = async()=>{
                     "second_stage": 1
                 },
                 "sort": {
-                    "second_stage.thrust.kN": "desc"
+                    "second_stage.fuel_amount_tons": "desc"
                 }
             }
         })
     }
     let res = await fetch("https://api.spacexdata.com/v4/rockets/query", config);
     let {docs:[{second_stage} = maxEnginesRocket]} = await res.json();
-    return second_stage.thrust;
+    return second_stage.fuel_amount_tons;
 }
 
 

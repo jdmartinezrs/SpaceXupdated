@@ -20,7 +20,7 @@ import {
     informRocketEngineThrustVacuum,
     informRocketFirstStageThustVacuum,
     informRocketFirstStageThrustSeaLevel,
-    informRocketSecondStageThrust,
+    informRocketSecondStageFuelAmountTons,
     informFirstStageBurnTimeSec,
     informRocketBurnTimeSec
    
@@ -73,7 +73,7 @@ const getRocketsId = async(e)=>{
     await informRocketEngineThrustVacuum(Rocket.engines.thrust_vacuum);
     await informRocketFirstStageThustVacuum(Rocket.first_stage.thrust_vacuum);
     await informRocketFirstStageThrustSeaLevel(Rocket.first_stage.thrust_sea_level)
-    await informRocketSecondStageThrust(Rocket.second_stage.thrust)
+    await informRocketSecondStageFuelAmountTons(Rocket.second_stage.fuel_amount_tons)
     await informFirstStageBurnTimeSec(Rocket.first_stage.burn_time_sec)
     await informRocketBurnTimeSec(Rocket.second_stage.burn_time_sec)
     await imageRockets(Rocket.flickr_images);
