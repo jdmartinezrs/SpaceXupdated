@@ -173,7 +173,7 @@ export const informRocketSecondStageFuelAmountTons= async(fuel_amount_tons)=>{
     let divFirstChildren = document.createElement('div');
     divFirstChildren.classList.add("progress__value")
     let strong = document.createElement('strong');
-    strong.textContent = "Second Stage FuelAmountTons"
+    strong.textContent = " Fuel Amount Tons"
     let smallFirst = document.createElement('small');
     smallFirst.textContent = `${porcentaje.toFixed(2)} %`
     
@@ -209,7 +209,7 @@ export const informFirstStageBurnTimeSec= async(burn_time_sec)=>{
     let divFirstChildren = document.createElement('div');
     divFirstChildren.classList.add("progress__value")
     let strong = document.createElement('strong');
-    strong.textContent = "First Stage burn time sec"
+    strong.textContent = "F.S Burn Time Sec"
     let smallFirst = document.createElement('small');
     smallFirst.textContent = `${porcentaje.toFixed(2)} %`    
     
@@ -246,7 +246,7 @@ export const informRocketBurnTimeSec= async(burn_time_sec)=>{
     let divFirstChildren = document.createElement('div');
     divFirstChildren.classList.add("progress__value")
     let strong = document.createElement('strong');
-    strong.textContent = "Second Stage burn time sec"
+    strong.textContent = "S.S Burn Time Sec"
     let smallFirst = document.createElement('small');
     smallFirst.textContent = `${porcentaje.toFixed(2)} %`    
     
