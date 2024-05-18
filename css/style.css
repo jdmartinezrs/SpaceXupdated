@@ -315,27 +315,30 @@ body {
 
 
 .footer {
-    background: coral;
+    /* background: coral; */
     grid-area: section__footer;
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
     grid-template-areas: ". footer__menu .";
+    
 }
 
 .footer ul {
     grid-area: footer__menu;
-    /* background: violet; */
+    background: var(--color--one);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 70px;
+  
+
 }
 
 .footer ul::after{
     content: "";
     position: relative;
-    margin-top: 10px;
+    margin-top: 30px;
     right: -36px;
     bottom: 0;
     width: 0;
@@ -349,7 +352,7 @@ body {
 .footer ul::before{
     content: "";
     position: relative;
-    margin-top: 10px;
+    margin-top: 30px;
     left: -36px;
     bottom: 0;
     width: 0;
