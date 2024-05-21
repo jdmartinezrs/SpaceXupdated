@@ -3,13 +3,17 @@ import {
     getAllRocketsId
 } from "../modules/rockets.js";
 import { 
-    nameRockets 
+    nameRockets,
+    nameCapsules 
 } from "./title.js";
 import { 
     informationRockets,
     informationLaunchCostRocket,
     informationFirstFlightRocket,
-    informationWebRocket
+    informationWebRocket,
+    capsulesIdPage,
+    capsulesType,
+    capsulesStatus
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -38,7 +42,9 @@ import {
 } from "../modulesComponents/progressBar.js";
 
 import{
-    getAllCapsules 
+    getAllCapsules,
+    getAllCapsulesId,
+    getCapsules 
 } from "../modules/capsules.js"
 
 export const load = async()=>{
@@ -186,20 +192,53 @@ export const paginationRockets = async()=>{
     return div;
 }
 
-const getCapsulesId = async(e)=>{
+const getCapsulesId = async (e) => {
     e.preventDefault();
+  
     if(e.target.dataset.page){
         let paginacion = document.querySelector("#paginacion");
         paginacion.innerHTML = ""
         paginacion.append(await paginationCapsules(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            
+            a1.click();
+        }, 200);
     }
+  
     let a = e.target.parentElement.children;
-    for(let val of a){
-        val.classList.remove('activo');
+    for (let val of a) {
+      val.classList.remove('activo');
     }
     e.target.classList.add('activo');
+  
+    let capsules = await getAllCapsulesId(e.target.id);
+    console.log(capsules);
+
+    await nameCapsules(capsules.serial);
+
+    let description__item = document.querySelector("#description__item");
+    description__item.innerHTML = "";
+
+    let capsulesIdPageElement = await capsulesIdPage(capsules.id);
+    description__item.append(capsulesIdPageElement);
+
+    let capsulesTypeElement = await capsulesType(capsules.type);
+    description__item.append(capsulesTypeElement);
+  
+    let capsulesStatusElement= await capsulesStatus(capsules.status);
+    description__item.append(capsulesStatusElement);
+
+    ///aqui se colocarà para la proxima
+
+    // let description__item = document.querySelector("#description__item");
+    // description__item.innerHTML = "";
 
 }
+
+
+
 
 export const paginationCapsules = async(page=1, limit=4)=>{  
      

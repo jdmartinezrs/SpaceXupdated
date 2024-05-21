@@ -116,3 +116,78 @@ export const informationWebRocket = async(wikipedia)=>{
     //     </div>
     // </div>
 }
+
+
+
+export const capsulesIdPage  = async(id)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/Groupcodigo.svg")
+
+    img.setAttribute("width", "50"); 
+     img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "ID:"
+    let small = document.createElement('small');
+    small.textContent = id
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
+}
+
+
+export const capsulesType  = async(type)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/Groupcodigo.svg")
+
+    img.setAttribute("width", "50"); 
+     img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Type:"
+    let small = document.createElement('small');
+    small.textContent = type
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
+}
+
+export const capsulesStatus = async(status)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/Groupcodigo.svg")
+
+    img.setAttribute("width", "50"); 
+     img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Status:"
+    let small = document.createElement('small');
+    small.textContent = status
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; 
+}
+
+
+
